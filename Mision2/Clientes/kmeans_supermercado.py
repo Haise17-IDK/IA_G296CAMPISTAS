@@ -13,3 +13,19 @@ print(df)
 df['Edad']=df['Edad'].round().astype(int)
 df['VisitasPorMes']=df['VisitasPorMes'].round().astype(int)
 print(df)
+x=df[['Edad','GastoMensual','VisitasPorMes']]
+#=======================
+# Método del codo
+#======================
+inertias=[]
+k_range =range(1,10)
+for k in k_range:
+    kmeans=KMeans(n_clusters=k,random_state=42)
+    kmeans.fit(x)
+    inertias.append(kmeans.inertia_)
+plt.figure(figsize=(6,4))
+plt.plot(k_range,inertias,marker='o')
+plt.xlabel('Número de cluster')
+plt.ylabel('Inercia')
+plt.title('Médodo del codo Segmentación de clientes')
+plt.show()
