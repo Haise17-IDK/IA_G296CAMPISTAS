@@ -1,3 +1,5 @@
 print("Hola")
 print("This is a test of the code completion feature.")
 print(8 + 7)    
+print("Let's see if it works correctly.")
+print("Goodbye!")
