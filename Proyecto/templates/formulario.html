@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Predición de ahorro</title>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
-    <link rel="icon" href="{{url_for('static',filename='favicon.ico')}}" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Generador aleatorio - Entradas</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h2>Ingrese los datos del hogar</h2>
-    <form action="/predecir" method="post">
-        <select name="ubicacion">
-           <option value="zona_1">Zona 1</option>
-           <option value="zona_2">Zona 2</option>
-           <option value="zona_3">Zona 3</option>
-        </select>
-        <label>Tamaño del Hogar</label>
-        <input type="number" name="tamano_hogar"> 
-        <label >Costo de instalación</label>
-        <input type="number"  step="0.01" name="costo_instalacion">
-        <label >Energía generada</label>
-        <input type="number" step="0.01" name="energia_generada">
-        <input type="submit" value="Predecir ahorro">
-    </form>   
+    <h2>Generar valores aleatorios</h2>
+
+    <div>
+        <form action="/generar" method="post">
+            <p>Presiona <strong>general</strong> para generar valores aleatorios según los rangos internos del servidor.</p>
+
+            <div class="grid">
+            {% for nombre in nombres %}
+                <label for="{{ nombre }}">{{ nombre }}</label>
+                <!-- mostramos una casilla de sólo lectura con texto explicativo -->
+                <input type="text" id="{{ nombre }}" name="{{ nombre }}" value="(Se generará al presionar 'general')" readonly>
+            {% endfor %}
+            </div>
+
+            <input type="submit" value="general">
+        </form>
+    </div>
 </body>
 </html>
