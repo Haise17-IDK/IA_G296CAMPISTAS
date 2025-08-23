@@ -3,7 +3,7 @@ function downloadPDF() {
 
     const opt = {
         margin: [2,0.1, 1 , 5],  // [arriba, izquierda, abajo, derecha] en mm
-        filename: 'Hoja_de_Vida_Julian_Buitrago.pdf',
+        filename: 'Hoja_de_Vida_Andres_Sanchez.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: {
             scale: 2,
